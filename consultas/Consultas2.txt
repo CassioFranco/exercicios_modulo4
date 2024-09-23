@@ -1,0 +1,56 @@
+ESTRUTURA DE UMA CONSULTA
+
+SELECT Lista de atributos
+FROM Lista de tabelas
+WHERE Condições
+
+Para verificar se as consultas estão corretas, utilize o banco de dados chamado codeacademy que foi disponibilizado.
+
+Exercícios:
+
+    1. Listar o código, nome, endereço, nome da cidade, nome do estado dos vendedores cadastrados.
+       
+        SELECT codVendedor, nome, endereco,codCidade, cep from vendedor;
+
+    2.  Listar o código da venda, data de venda, nome do vendedor de todas as vendas com status de ‘Despachada’.
+       
+       SELECT codVenda, dataVenda, nome FROM venda, vendedor WHERE status = "Despachada";
+       
+    3. Listar os clientes pessoa física que moram na Rua Marechal Floriano, 56.
+       
+       SELECT * FROM cliente WHERE endereco = "Rua Marechal Floriano, 56";
+       
+    4. Listar todas as informações dos clientes que são pessoas jurídicas.
+       
+       SELECT * FROM clienteJuridico;
+
+    5. Listar o nome fantasia, endereço, telefone, nome da cidade, sigla do estado de todos os clientes jurídicos que foram cadastrados entre 01/01/1999 e 30/06/2003.
+
+	SELECT nomeFantasia, endereco, telefone, siglaEstado from clienteJuridico, cliente, 	estado WHERE dataCadastro BETWEEN '1999-01-01' AND '2003-06-30'; 
+	
+
+    6. Listar o nome dos vendedores que realizaram vendas para o cliente pessoa jurídica com nome fantasia ‘Gelinski’.
+       
+        SELECT nome FROM vendedor, clienteJuridico WHERE nomeFantasia = 'Gelinski';
+
+    7. Listar o código, o número do lote e o nome dos produtos que estão com a data de validade vencida.
+       
+       SELECT codProduto, numeroLote, nome FROM produtoLote WHERE dataValidade < '2024-09-23';
+
+    8. Listar o nome dos departamentos e o nome dos vendedores neles lotados.
+       
+	SELECT d.nome AS nome_departamento, v.nome AS nome_vendedor
+	FROM departamento AS d
+	JOIN vendedor AS v ON d.codDepartamento = v.codDepartamento;
+
+
+
+
+
+
+
+
+
+
+
+
